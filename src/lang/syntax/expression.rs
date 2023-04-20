@@ -210,7 +210,8 @@ pub fn call<'a>(input: &'a str) -> ParseResult<&'a str, Expr> {
 pub fn primary<'a>(input: &'a str) -> ParseResult<&'a str, Expr> {
     wrapped(
         ws(),
-        value(Expr::Bool(true), sequence("true"))
+        wrapped(sequence("("), expression, sequence(")"))
+            .or(value(Expr::Bool(true), sequence("true")))
             .or(value(Expr::Bool(false), sequence("false")))
             .or(num_literal)
             .or(string_literal)
