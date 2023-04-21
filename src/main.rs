@@ -1,5 +1,3 @@
-use pepser::traits::ParseResult;
-
 use crate::lang::syntax::parse_language;
 
 mod lang;

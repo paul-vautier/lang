@@ -7,7 +7,9 @@ const IDENTIFIER_CHARSET: &str = "qwertyuiopasdfghjklzxcvbnm_QWERTYUIOPASDFGHJKL
 
 const RESERVED_WORD: &[&str] = &["if", "else", ""];
 
-use super::Expr;
+use crate::lang::model::expressions::Expr;
+
+use super::expression;
 
 #[rustfmt::skip]
 pub fn num_literal<'a>(input: &'a str) -> ParseResult<&'a str, Expr> {
